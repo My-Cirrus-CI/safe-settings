@@ -19,7 +19,7 @@ COPY  lib /opt/safe-settings/lib
 ## Future updates to this Dockerfile _may_ move this over to
 ## pure environment variables in Docker, so it can be passed at the CLI.
 ## This will be purely based on demand
-##COPY  .env /opt/safe-settings/
+COPY  .env /opt/safe-settings/
 
 ## This can probably be removed, but users will have to make sure they
 ## run the container, then copy the key. This helps avoid that for folks
@@ -31,14 +31,16 @@ USER root
 RUN apk add --no-cache make python
 
 ## Best practice, don't run as `root`
-USER node
+USER root
 
 #
 ## Not strictly necessary, but set permissions to 400
-#RUN chmod 400 /opt/safe-settings/.ssh/safe-settings.pem /opt/safe-settings/.env
+# RUN chmod 400 /opt/safe-settings/.ssh/safe-settings.pem /opt/safe-settings/.env
 
 ## Install the app and dependencies
-RUN npm install
+# KDS I added smee for my local
+RUN npm install \
+&& npm install --save-dev smee-client
 
 ## This app will listen on port 3000
 EXPOSE 3000
