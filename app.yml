@@ -125,10 +125,12 @@ default_permissions:
 
 
 # The name of the GitHub App. Defaults to the name specified in package.json
-name: Safe Settings
+name: MyCirrus safe settings test
 
 # The homepage of your GitHub App.
-url: https://github.com/github/safe-settings
+# url: https://github.com/github/safe-settings
+# smee proxy added below
+url: https://smee.io/0od6aA7ha2jBdEAW
 
 # A description of the GitHub App.
 # description: A description of my awesome app
